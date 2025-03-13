@@ -1,7 +1,7 @@
 # [iSH](https://ish.app)
 
 [![Build Status](https://github.com/ish-app/ish/actions/workflows/ci.yml/badge.svg)](https://github.com/ish-app/ish/actions)
-[![goto counter](https://img.shields.io/github/search/ish-app/ish/goto.svg)](https://github.com/ish-app/ish/search?q=goto)
+[![goto counter](https://img.shields.io/github/search/ish-app//goto.svg)](https://github.com/ish-app/ish/search?q=goto)
 [![fuck counter](https://img.shields.io/github/search/ish-app/ish/fuck.svg)](https://github.com/ish-app/ish/search?q=fuck)
 
 <p align="center">
@@ -12,12 +12,13 @@
 
 A project to get a Linux shell running on iOS, using usermode x86 emulation and syscall translation.
 
-For the current status of the project, check the issues tab, and the commit logs.
+For the current status of the project, check the issues tab, and  logs.
 
 - [App Store page](https://apps.apple.com/us/app/ish-shell/id1436902243)
 - [TestFlight beta](https://testflight.apple.com/join/97i7KM8O)
-- [Discord server](https://discord.gg/HFAXj44)
-- [Wiki with help and tutorials](https://github.com/ish-app/ish/wiki)
+- [](https://discord.gg/HFAX)
+- [Wiki with help and tutorials](https://github
+.com/ish-app/ish/wiki)
 - [README中文](https://github.com/ish-app/ish/blob/master/README_ZH.md) (如若未能保持最新，请提交PR以更新)
 
 # Hacking
@@ -27,7 +28,7 @@ This project has a git submodule, make sure to clone with `--recurse-submodules`
 You'll need these things to build the project:
 
  - Python 3
-   + Meson (`pip3 install meson`)
+   + Meson (`pip3  meson`)
  - Ninja
  - Clang and LLD (on mac, `brew install llvm`, on linux, `sudo apt install clang lld` or `sudo pacman -S clang lld` or whatever)
  - sqlite3 (this is so common it may already be installed on linux and is definitely already installed on mac. if not, do something like `sudo apt install libsqlite3-dev`)
@@ -35,12 +36,11 @@ You'll need these things to build the project:
 
 ## Build for iOS
 
-Open the project in Xcode, open iSH.xcconfig, and change `ROOT_BUNDLE_IDENTIFIER` to something unique. You'll also need to update the development team ID in the project (not target!) build settings. Then click Run. There are scripts that should do everything else automatically. If you run into any problems, open an issue and I'll try to help.
+Open the project in Xcode, open iSH.xccon, and change `ROOT_BUNDto something unique. You'll also need to update the development team ID in the project (not target!) build settings. Then click Run. There are scripts that should do everything else automatically. If you runany problems, open an issue and I'll try to help.
 
 ## Build command line tool for testing
 
-To set up your environment, cd to the project and run `meson build` to create a build directory in `build`. Then cd to the build directory and run `ninja`.
-
+To set up your environment, cd to the  and run `meson build` to create dire in `build`. Then cd to the build directory and run `ninja`
 To set up a self-contained Alpine linux filesystem, download the Alpine minirootfs tarball for i386 from the [Alpine website](https://alpinelinux.org/downloads/) and run `./tools/fakefsify`, with the minirootfs tarball as the first argument and the name of the output directory as the second argument. Then you can run things inside the Alpine filesystem with `./ish -f alpine /bin/sh`, assuming the output directory is called `alpine`. If `tools/fakefsify` doesn't exist for you in your build directory, that might be because it couldn't find libarchive on your system (see above for ways to install it.)
 
 You can replace `ish` with `tools/ptraceomatic` to run the program in a real process and single step and compare the registers at each step. I use it for debugging. Requires 64-bit Linux 4.11 or later.
